@@ -72,7 +72,7 @@ def check_ffdec():
         except zipfile.BadZipFile:
             print("Can't extract! Is the link out of date? Try to update the 'ffdec_url' in function 'check_ffdec'")
             exit()
-    if os.system("java --version > " + os.devnull) != 0:
+    if os.system("java -version > " + os.devnull) != 0:
         print("Java not found! Plase install java and add java to the path.")
         exit()
 def r(str):
@@ -234,19 +234,20 @@ def clean():
     shutil.rmtree(svg_path)
 
 if __name__ == "__main__":
-    check_ffdec()
+    # check_ffdec()
     a=sys.argv
-    if len(a) == 1:
-        while True:
-            if main():
-                try:
-                    clean()
-                except NameError:
-                    pass
-                if choose():
-                    pass
-                else:
-                    exit()
-            else:
-                pass
+    main()
+    # if len(a) == 1:
+    #     while True:
+    #         if main():
+    #             try:
+    #                 clean()
+    #             except NameError:
+    #                 pass
+    #             if choose():
+    #                 pass
+    #             else:
+    #                 exit()
+    #         else:
+    #             pass
 
